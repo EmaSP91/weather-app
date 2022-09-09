@@ -8,10 +8,11 @@
 }
 
 .background{
-    background: linear-gradient(to right, rgba(180, 179, 179, 0.226) 0%,rgba(151, 148, 148, 0.178) 100%),url(./img/background.jpg);
+    background: linear-gradient(to right, rgba(180, 179, 179, 0.226) 0%,rgba(151, 148, 148, 0.178) 100%),url(./img/background.png);
     background-repeat: no-repeat;
     background-size: cover;
-    transition: .5 ease-in-out;
+    background-position: center;
+    transition: .2s ease-out;
 }
 
 
@@ -19,24 +20,55 @@
   background: linear-gradient(to right, rgba(212, 212, 212, 0.329) 0%,rgba(167, 164, 164, 0.747) 100%),url(./img/sunny.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  transition: .2s ease-out;
+}
+
+.background.night{
+  background: linear-gradient(to right, rgba(212, 212, 212, 0.24) 0%,rgba(167, 164, 164, 0.205) 100%),url(./img/night.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transition: .2s ease-out;
 }
 
 .background.snow{
   background: linear-gradient(to right, rgba(180, 178, 178, 0.205) 0%,rgba(206, 203, 203, 0.068) 100%),url(./img/snowy.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  transition: .2s ease-out;
 }
 
 .background.clouds{
-  background: linear-gradient(to right, rgba(180, 178, 178, 0.205) 0%,rgba(206, 203, 203, 0.068) 100%),url(./img/night.jpg);
+  background: linear-gradient(to right, rgba(180, 178, 178, 0.205) 0%,rgba(206, 203, 203, 0.068) 100%),url(./img/cloudy.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  transition: .2s ease-out;
 }
 
+.background.rain{
+  background: linear-gradient(to right, rgba(180, 178, 178, 0.205) 0%,rgba(206, 203, 203, 0.068) 100%),url(./img/rainy.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transition: .2s ease-out;
+}
+
+.background.thunder{
+  background: linear-gradient(to right, rgba(180, 178, 178, 0.205) 0%,rgba(206, 203, 203, 0.068) 100%),url(./img/thunderstorm.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transition: .2s ease-out;
+}
 .background.mist{
   background: linear-gradient(to right, rgba(180, 178, 178, 0.205) 0%,rgba(206, 203, 203, 0.068) 100%),url(./img/mist.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  transition: .2s ease-out;
 }
 
 .container{
@@ -66,6 +98,10 @@
   padding-left: 15px;
 }
 
+.search-button::placeholder{
+  color: white;
+  opacity: 1;
+}
 button {
   width: 30px;
   height:35px;
@@ -94,9 +130,16 @@ button {
 
 }
 
+
+.not_found{
+  width: 300px;
+ 
+}
+
 .date-box{
   background-color: rgba(255, 255, 255, 0.527);
-  width: 250px;
+  min-width: 250px;
+  padding: 0 5px;
   height: 50px;
   box-shadow: 1px 2px 5px rgba(77, 77, 77, 0.829);
   border-radius: 15px;
@@ -108,8 +151,9 @@ button {
 
 .card{
   background-color: rgba(255, 255, 255, 0.527);
-  width: 250px;
+  min-width: 250px;
   height: 150px;
+  padding: 10px;
   box-shadow: 1px 2px 5px rgba(77, 77, 77, 0.829);
   border-radius: 15px;
   display: flex;
@@ -177,3 +221,9 @@ button {
 }
 
 
+
+@media (max-width: 450px) {
+  .not_found {
+    width: 250px;
+  }
+}
