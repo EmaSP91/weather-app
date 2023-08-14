@@ -4,6 +4,14 @@ import Axios from 'axios';
 
 function Weather() {
 
+
+    const apiKey = "9dccf6e71acad4d54bc32b9703baf19b";
+    const [city, setCity] = useState("");
+    const [displayCity, setdisplayCity] = useState(false);
+    const [weatherInfo, setWeatherInfo] = useState({cityname: "", country:"", info: "", temperature: "", feelsLike: "", tempMin: "", tempMax:""});
+    const [weatherIcon, setWeatherIcon] = useState("");
+    const [background, setBackground] = useState("background");
+
     const date = new Date();
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -22,12 +30,7 @@ function Weather() {
 
    
     
-    const apiKey = "9dccf6e71acad4d54bc32b9703baf19b";
-    const [city, setCity] = useState("");
-    const [displayCity, setdisplayCity] = useState(false);
-    const [weatherInfo, setWeatherInfo] = useState({cityname: "", country:"", info: "", temperature: "", feelsLike: "", tempMin: "", tempMax:""});
-    const [weatherIcon, setWeatherIcon] = useState("crescent-moon");
-    const [background, setBackground] = useState("background");
+    
 
     const searchCity = (e) =>{
           let currentCity = e.target.value;
@@ -35,6 +38,8 @@ function Weather() {
           
     }
     useEffect(() => {
+
+      if(weatherInfo.info){
 
       switch (weatherInfo.info) {
         case "Clouds":
@@ -73,7 +78,7 @@ function Weather() {
           break;
       }
      
-    }, [weatherInfo.info, hour])
+    }}, [weatherInfo.info, hour])
     
     const displayWeather = (currentCity)=>{
         Axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}&units=metric`).then((response)=>{
@@ -120,7 +125,7 @@ function Weather() {
 
            {!displayCity ? 
              <div>
-              <div><img className="not_found" src={`./img/notfound.png`} alt="Not found" /></div>
+              <div><img className="weather" src={`./img/weather.png`} alt="weather" /></div>
              </div>
             : <><div className='date-box'>
                <div>{`${day}, ${month} ${currentDate} ${year} ${hour}:${minutes}`}</div>
